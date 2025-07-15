@@ -1,0 +1,125 @@
+﻿<Window x:Class="create_invoice_cs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:create_invoice_cs"
+        mc:Ignorable="d"
+        Title="Invoice Maker" Height="600" Width="800" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Background="#f5f5f7">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#1c1c1e"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#ffffff"/>
+            <Setter Property="BorderBrush" Value="#d1d1d6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,5,0,10"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#007aff"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="1" Opacity="0.2"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#0066cc"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0">
+            <Label Content="Invoice Maker" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Customer Information -->
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <Label Content="Customer Information"/>
+                    <Label Content="Name" FontSize="12"/>
+                    <TextBox x:Name="txtCustomerName"/>
+                    <Label Content="Address" FontSize="12"/>
+                    <TextBox x:Name="txtCustomerAddress" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+                </StackPanel>
+
+                <!-- Item Information -->
+                <StackPanel Grid.Column="1" Margin="10,0,10,0">
+                    <Label Content="Item Information"/>
+                    <Label Content="Item Name" FontSize="12"/>
+                    <TextBox x:Name="txtItemName"/>
+                    <Label Content="Quantity" FontSize="12"/>
+                    <TextBox x:Name="txtQuantity"/>
+                    <Label Content="Unit Price" FontSize="12"/>
+                    <TextBox x:Name="txtUnitPrice"/>
+                    <Button Content="Add Item" Click="AddItem_Click"/>
+                </StackPanel>
+
+                <!-- Invoice Summary -->
+                <StackPanel Grid.Column="2" Margin="10,0,0,0">
+                    <Label Content="Invoice Summary" FontWeight="Bold"/>
+                    <DataGrid x:Name="dgInvoiceItems" AutoGenerateColumns="False" 
+                              HeadersVisibility="Column" BorderThickness="0" 
+                              Background="Transparent" RowHeight="30" Margin="0,10,0,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Item" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="Qty" Binding="{Binding Quantity}" Width="0.5*"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding UnitPrice, StringFormat=C}" Width="*"/>
+                            <DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat=C}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Label Content="Subtotal:" FontWeight="Bold"/>
+                        <Label x:Name="lblSubtotal" Content="$0.00" Margin="10,0,0,0" MinWidth="80"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Label Content="Tax (10%):" FontWeight="Bold"/>
+                        <Label x:Name="lblTax" Content="$0.00" Margin="10,0,0,0" MinWidth="80"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Label Content="Total:" FontWeight="Bold" FontSize="16"/>
+                        <Label x:Name="lblTotal" Content="$0.00" Margin="10,0,0,0" MinWidth="80" FontSize="16"/>
+                    </StackPanel>
+
+                    <Button Content="Generate Invoice" Click="GenerateInvoice_Click" Margin="0,20,0,0"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
