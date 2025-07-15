@@ -143,11 +143,12 @@ namespace create_invoice_cs
         private string GenerateInvoiceText()
         {
             return $"""
+                --------------------------------------------------
                 INVOICE
                 --------------------------------------------------
                 CUSTOMER: {txtCustomerName.Text.Trim()}
                 ADDRESS: {txtCustomerAddress.Text.Trim()}
-                
+                --------------------------------------------------
                 ITEMS
                 --------------------------------------------------
                 {GetItemsText()}
