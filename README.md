@@ -8,6 +8,7 @@ A WPF-based desktop application for creating and managing invoices with customer
 - [REASON](#reason)
 - [LICENSE](#license)
 - [REFERENCES](#references)
+- [DISCLAIMER](#disclaimer)
 
 ## OBJECTIVE
 
