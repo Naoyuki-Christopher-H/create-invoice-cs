@@ -16,7 +16,7 @@ A WPF-based desktop application for creating and managing invoices with customer
 
 The Invoice Maker is a desktop application designed to simplify the process of creating and managing invoices. It allows users to input customer information, add multiple items with quantities and prices, and automatically calculates subtotals, taxes (10%), and total amounts. The application provides a clean, user-friendly interface with real-time updates and validation to ensure accurate invoice generation.
 
-- **Date of creation:** 2023-11
+- **Date of creation:** 2025-07
 - **Badges:** N/A
 - **Technical:**
   - **Laborator:** WPF, XAML, C#, .NET Framework
