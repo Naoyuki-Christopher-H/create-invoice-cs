@@ -148,15 +148,16 @@ namespace create_invoice_cs
                 CUSTOMER: {txtCustomerName.Text.Trim()}
                 ADDRESS: {txtCustomerAddress.Text.Trim()}
                 
-                ITEMS:
+                ITEMS
                 --------------------------------------------------
                 {GetItemsText()}
                 --------------------------------------------------
                 SUB-TOTAL: {lblSubtotal.Content}
                 TAX (10%): {lblTax.Content}
                 TOTAL: {lblTotal.Content}
-                
+                --------------------------------------------------
                 DATE: {DateTime.Now:yyyy-MM-dd}
+                --------------------------------------------------
                 """;
         }
 
