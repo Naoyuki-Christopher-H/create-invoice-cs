@@ -22,7 +22,7 @@ The Invoice Maker is a desktop application designed to simplify the process of c
   - **Laborator:** WPF, XAML, C#, .NET Framework
   - **Dependencies:** .NET Framework 4.7.2 or later
 - **Installation Instructions**
-  - **GitHub Repo:** [Invoice Maker Repo](https://github.com/username/invoice-maker)
+  - **GitHub Repo:** [Invoice Maker Repo](https://github.com/Naoyuki-Christopher-H/invoice-maker)
   - Clone the repository: `git clone https://github.com/Naoyuki-Christopher-H/invoice-maker.git`
   - Open the solution file `create_invoice_cs.sln` in Visual Studio 2019 or later
   - Build the solution (Ctrl+Shift+B)
